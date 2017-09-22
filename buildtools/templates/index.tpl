@@ -17,6 +17,12 @@
     var options = {{{options}}};
     var signIn = new OktaSignIn(options);
 
+    signIn.on('authError', function (err) {
+      if (err.name=='AuthApiError') {
+        console.log(err);
+      }
+    });
+
     signIn.renderEl(
       { el: '#okta-login-container' },
 
