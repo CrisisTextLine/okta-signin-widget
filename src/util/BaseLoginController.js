@@ -47,8 +47,11 @@ define(['okta', 'vendor/lib/q'], function (Okta, Q) {
         this.toggleButtonState(true);
       });
 
-      this.listenTo(this.model, 'error', function () {
+      this.listenTo(this.model, 'error', function (e) {
         this.toggleButtonState(false);
+        if (e && e.name=='AuthApiError') {
+          this.trigger('authError', e);
+        }
       });
 
       var setTransactionHandler = _.bind(function (transaction) {
