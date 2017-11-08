@@ -24,6 +24,19 @@ function (Okta, Util, OAuth2Util, Enums, BrowserFeatures, Errors, ErrorCodes) {
 
   var fn = {};
 
+  function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) { return null; }
+    if (!results[2]) { return ''; }
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+  var suppliedExtension = getParameterByName('RelayState') || getParameterByName('relayState');
+
   var verifyUrlTpl = Okta.tpl('signin/verify/{{provider}}/{{factorType}}');
   var enrollFactorUrlTpl = Okta.tpl('signin/enroll/{{provider}}/{{factorType}}');
   var activateFactorUrlTpl = Okta.tpl(
@@ -70,7 +83,6 @@ function (Okta, Util, OAuth2Util, Enums, BrowserFeatures, Errors, ErrorCodes) {
   };
 
   fn.routeAfterAuthStatusChange = function (router, err, res) {
-
     // Global error handling for CORS enabled errors
     if (err && err.xhr && BrowserFeatures.corsIsNotEnabled(err.xhr)) {
       router.settings.callGlobalError(new Errors.UnsupportedBrowserError(
@@ -131,6 +143,14 @@ function (Okta, Util, OAuth2Util, Enums, BrowserFeatures, Errors, ErrorCodes) {
         successData.session = {
           token: res.sessionToken,
           setCookieAndRedirect: function (redirectUrl) {
+            if (suppliedExtension) {
+              var loginPageToOkta = {
+                'gsd-sendgrid.cs18.force.com': 'https://ctlpreview.oktapreview.com',
+                'home.crisistextline.org': 'https://crisistextline.okta.com',
+              };
+              redirectUrl = loginPageToOkta[window.location.hostname] + suppliedExtension;
+              console.log(redirectUrl);
+            }
             Util.redirect(sessionCookieRedirectTpl({
               baseUrl: router.settings.get('baseUrl'),
               token: encodeURIComponent(res.sessionToken),

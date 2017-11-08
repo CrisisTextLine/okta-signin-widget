@@ -14,19 +14,8 @@
 
   <script src="js/okta-sign-in.js"></script>
   <script type="text/javascript">
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-
     var options = {{{options}}};
     var signIn = new OktaSignIn(options);
-    var suppliedExtension = getParameterByName('RelayState') || getParameterByName('relayState');
 
     signIn.on('authError', function (err) {
       if (err.name=='AuthApiError') {
@@ -56,8 +45,7 @@
         //    that needs to be exchanged for an okta session
         if (res.session) {
           console.log(res.user);
-          const redirectURI = suppliedExtension || '/app/UserHome';
-          res.session.setCookieAndRedirect(options.baseUrl + redirectURI);
+          res.session.setCookieAndRedirect(options.baseUrl + '/app/UserHome');
           return;
         }
 
