@@ -1,3 +1,4 @@
+#!/bin/sh
 # This script is okta internal only. This is referenced in
 # https://github.com/okta/npm/scripts/third-party-publish.sh and will be 
 # used when this package is built there.
