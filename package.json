@@ -76,7 +76,7 @@
     "open": "0.0.5",
     "phantomjs": "1.9.20",
     "protractor": "4.0.4",
-    "request-promise": "2.0.0",
+    "request-promise-core": "1.1.1",
     "semver": "5.1.0",
     "time-grunt": "1.4.0",
     "webdriver-manager": "10.2.5",
