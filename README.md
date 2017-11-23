@@ -3,14 +3,10 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3ef4310ee50d42b18a115bd264860243)](https://www.codacy.com/app/MySolace/okta-signin-widget?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MySolace/okta-signin-widget&amp;utm_campaign=Badge_Grade)
 <!-- END GITHUB ONLY -->
 
-CrisisTexLine Sign-In
-=====================
-
-Based on the Javascript [Okta]() the widget provides authentication for home.crisistextline.org.
+CrisisTexLine.org Authentication
+============================
 
 <!-- START GITHUB ONLY -->
-For a high level overview of the widget's features and authentication flows, check out [our developer docs](http://developer.okta.com/code/javascript/okta_sign-in_widget.html).
-
 Contributors should read our [contributing guidelines](./CONTRIBUTING.md) if they wish to contribute.
 
 # Table of Contents
