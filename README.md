@@ -1,5 +1,5 @@
 <!-- START GITHUB ONLY -->
-[![Build Status](https://travis-ci.org/okta/okta-signin-widget.svg?branch=master)](https://travis-ci.org/okta/okta-signin-widget)
+[![Build Status](https://travis-ci.org/MySolace/okta-signin-widget.svg?branch=master)](https://travis-ci.org/MySolace/okta-signin-widget)
 <!-- END GITHUB ONLY -->
 
 Okta Sign-In Widget
