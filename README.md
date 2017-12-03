@@ -1,7 +1,5 @@
 <!-- START GITHUB ONLY -->
-[![Build Status](https://travis-ci.org/CrisisTextLine/okta-signin-widget.svg?branch=master)](https://travis-ci.org/MySolace/okta-signin-widget) 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3ef4310ee50d42b18a115bd264860243)](https://www.codacy.com/app/MySolace/okta-signin-widget?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MySolace/okta-signin-widget&amp;utm_campaign=Badge_Grade) 
-[![Vulnerabilities](https://snyk.io/test/github/mysolace/okta-signin-widget/badge.svg)](https://snyk.io/test/github/mysolace/okta-signin-widget)
+[![Build Status](https://travis-ci.org/okta/okta-signin-widget.svg?branch=master)](https://travis-ci.org/okta/okta-signin-widget)
 
 <!-- END GITHUB ONLY -->
 
