@@ -1,22 +1,16 @@
 <!-- START GITHUB ONLY -->
 [![Build Status](https://travis-ci.org/okta/okta-signin-widget.svg?branch=master)](https://travis-ci.org/okta/okta-signin-widget)
+
 <!-- END GITHUB ONLY -->
 
-Okta Sign-In Widget
-===================
-
-The Okta Sign-In Widget is a Javascript widget that provides a fully featured and customizable login experience which can be used to authenticate users on any website.
+CrisisTexLine.org Authentication
+============================
 
 <!-- START GITHUB ONLY -->
-For a high level overview of the widget's features and authentication flows, check out [our developer docs](http://developer.okta.com/code/javascript/okta_sign-in_widget.html).
-
 Contributors should read our [contributing guidelines](./CONTRIBUTING.md) if they wish to contribute.
 
 # Table of Contents
 
-* [Install](#install)
-  * [Using the Okta CDN](#using-the-okta-cdn)
-  * [Using the npm module](#using-the-npm-module)
 * [API](#api)
   * [OktaSignIn](#new-oktasigninconfig)
   * [renderEl](#rendereloptions-success-error)
@@ -56,107 +50,6 @@ Contributors should read our [contributing guidelines](./CONTRIBUTING.md) if the
 # Install
 
 You can include the Sign-In Widget in your project either directly from the Okta CDN, or by packaging it with your app via our npm package, [@okta/okta-signin-widget](https://www.npmjs.com/package/@okta/okta-signin-widget).
-
-## Using the Okta CDN
-
-Loading our assets directly from the CDN is a good choice if you want an easy way to get started with the widget, and don't already have an existing build process that leverages [npm](https://www.npmjs.com/) for external dependencies.
-
-To use the CDN, include links to the JS and CSS files in your HTML:
-
-```html
-<!-- Latest CDN production Javascript and CSS: 1.11.0 -->
-<script
-  src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/1.11.0/js/okta-sign-in.min.js"
-  type="text/javascript"></script>
-<link
-  href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/1.11.0/css/okta-sign-in.min.css"
-  type="text/css"
-  rel="stylesheet"/>
-
-<!-- Theme file: Customize or replace this file if you want to override our default styles -->
-<link
-  href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/1.11.0/css/okta-theme.css"
-  type="text/css"
-  rel="stylesheet"/>
-```
-
-The `okta-sign-in.min.js` file will expose a global `OktaSignIn` object which can be used to bootstrap the widget:
-
-```javascript
-var signIn = new OktaSignIn({/* configOptions */});
-```
-
-## Using the npm module
-
-Using our npm module is a good choice if:
-- You have a build system in place where you manage dependencies with npm
-- You do not want to load scripts directly from third party sites
-
-To install [@okta/okta-signin-widget](https://www.npmjs.com/package/@okta/okta-signin-widget):
-
-```bash
-# Run this command in your project root folder.
-[project-root-folder]$ npm install @okta/okta-signin-widget --save
-```
-
-The widget source files and assets will be installed to `node_modules/@okta/okta-signin-widget/dist`, and will have this directory structure:
-
-```bash
-node_modules/@okta/okta-signin-widget/dist/
-  css/
-    # Main CSS file for widget styles. Try not to override the classes in this
-    # file when creating a custom theme - the classes/elements are subject to
-    # change between releases
-    okta-sign-in.min.css
-
-    # Example theme that you can use as a template to create your own custom theme
-    okta-theme.css
-
-  # Base font and image files that are used in rendering the widget
-  font/
-  img/
-
-  js/
-    # CDN JS file that exports the OktaSignIn object in UMD format. This is
-    # packaged with everything needed to run the widget, including third party
-    # vendor files.
-    okta-sign-in.min.js
-
-    # Main entry file that is used in the npm require(@okta/okta-signin-widget)
-    # flow. This does not package third party dependencies - these are pulled
-    # down through `npm install` (which allows you to use your own version of
-    # jquery, etc).
-    okta-sign-in.entry.js
-
-  # Localized strings that are used to display all text and labels in the
-  # widget. Three output formats are included - json, jsonp, and properties
-  labels/
-
-  # Sass files that are used to generate the widget css. If you are already
-  # using Sass in your project, you can include these helper files to make
-  # generating your custom theme easier
-  sass/
-```
-
-After running `npm install`:
-
-1. Copy the assets to a folder that will be distributed to your publicly hosted site. The folders you'll need to copy are `css`, `font`, `img`, `js` and `labels`.
-
-2. Instead of copying `js` and including it in your page as a global, you can require the Sign-In Widget in your build if you are using [Webpack](https://webpack.github.io/), [Browserify](http://browserify.org/) or another module bundling system that understands the `node_modules` format.
-
-    ```javascript
-    // Load the Sign-In Widget module
-    var OktaSignIn = require('@okta/okta-signin-widget');
-
-    // Use OktaSignIn
-    var signIn = new OktaSignIn(/* configOptions */);
-    ```
-    **Note:** If you use [Browserify](http://browserify.org/) to bundle your app, you'll need to use the `--noparse` option:
-    ```
-    browserify main.js \
-    --noparse=$PWD/node_modules/@okta/okta-signin-widget/dist/js-okta-sign-in.entry.js \
-    --outfile=bundle.js
-    ```
 
 # API
 
@@ -1116,3 +1009,5 @@ The `.widgetrc` file is a configuration file that saves your local widget settin
 | `npm run build:release` | Build a minified, uglified version of the widget |
 | `npm test` | Run unit tests |
 | `npm run lint` | Run jshint and scss linting tests |
+
+

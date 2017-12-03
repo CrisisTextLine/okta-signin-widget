@@ -13,3 +13,4 @@ _.extend(testConfig.resolve.alias, {
 });
 
 module.exports = testConfig;
+
