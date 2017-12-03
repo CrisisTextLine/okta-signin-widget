@@ -28,7 +28,6 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-darwin-16
 
 DEPENDENCIES
   compass (= 1.0.3)
